@@ -48,8 +48,6 @@ public class PlayerCharacterMovement : MonoBehaviour
     private void CalculateVelocityY()
     {
         _velocityY = _velocityY + Physics.gravity.y * _gravityScale * Time.deltaTime;
-
-
     }
 
     private void CheckIsGrounded()
