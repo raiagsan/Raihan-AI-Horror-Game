@@ -4,4 +4,6 @@ Temp/*
 
 .vsconfig
 *.sln
+*.slnx
 *.csproj
+ignore.conf
