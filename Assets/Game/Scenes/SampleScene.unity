@@ -398,6 +398,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &241611053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 241611054}
+  m_Layer: 0
+  m_Name: Unhide Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &241611054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241611053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00750667, y: -0.6758195, z: -0.007885433, w: -0.73698676}
+  m_LocalPosition: {x: -1.86, y: 0, z: -0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 577571926}
+  m_LocalEulerAnglesHint: {x: -1.245, y: 445.04102, z: 0.085}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +614,7 @@ GameObject:
   - component: {fileID: 355023467}
   - component: {fileID: 355023466}
   - component: {fileID: 355023465}
+  - component: {fileID: 355023468}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -680,6 +712,8 @@ MonoBehaviour:
   _movement: {fileID: 355023463}
   _stamina: {fileID: 355023464}
   _interactDetector: {fileID: 355023467}
+  _camera: {fileID: 355023468}
+  _input: {fileID: 1495640704}
 --- !u!114 &355023466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +744,20 @@ MonoBehaviour:
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &355023468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355023460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c65ea480315f9d44aa06006d5ed86b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panTilt: {fileID: 131657952}
+  _cameraInput: {fileID: 131657951}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +895,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3640927997909704182, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882418167642954453, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8190606819638277481, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
       propertyPath: m_Name
       value: Master Wardrobe
@@ -893,9 +949,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8854412412298604499, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1315664456}
+    - targetCorrespondingSourceObject: {fileID: 8854412412298604499, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241611054}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3640927997909704182, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 577571929}
   m_SourcePrefab: {fileID: 100100000, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+--- !u!4 &577571926 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8854412412298604499, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+  m_PrefabInstance: {fileID: 577571925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &577571927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3640927997909704182, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+  m_PrefabInstance: {fileID: 577571925}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &577571928 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7519018397565902115, guid: 83b35f09eb62f6b4aa05fc23b95649a1, type: 3}
+  m_PrefabInstance: {fileID: 577571925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3c115fb23f3d84882732e05589fddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &577571929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577571927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8053fdb53f18aed4d9890e84652a31d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Master Wardrobe
+  _hidePosition: {fileID: 1315664456}
+  _unhidePosition: {fileID: 241611054}
+  _duration: 1
+  _door: {fileID: 577571928}
 --- !u!1 &602515558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1246,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6160753, y: 0.1619717, z: 0.5225245}
   m_Center: {x: -0.00030501187, y: 0.08073444, z: -0.23663323}
+--- !u!1 &1315664455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315664456}
+  m_Layer: 0
+  m_Name: Hide Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315664456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315664455}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7195322, z: -0, w: -0.6944591}
+  m_LocalPosition: {x: 0.06, y: 0, z: -0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 577571926}
+  m_LocalEulerAnglesHint: {x: 0, y: 267.96802, z: 0}
 --- !u!1001 &1492877336
 PrefabInstance:
   m_ObjectHideFlags: 0

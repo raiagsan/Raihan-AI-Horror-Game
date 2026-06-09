@@ -9,34 +9,7 @@ public class InteractDetector : MonoBehaviour
 
     private IInteractable _detectedInteractable;
     private bool _isInteracting;
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Transform cameraTransform = Camera.main.transform;
-        bool isDetectingInteractable = Physics.BoxCast(cameraTransform.position,
-                                                       _detectorBoxSize * 0.5f,
-                                                       cameraTransform.forward,
-                                                       out RaycastHit hit,
-                                                       Quaternion.identity, _detectorDistance,
-                                                        _interactableLayer
-                                                        );
-        if (isDetectingInteractable)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(cameraTransform.position, cameraTransform.position +
-                            cameraTransform.forward * hit.distance);
-            Gizmos.DrawWireCube(cameraTransform.position + cameraTransform.forward *
-                                hit.distance, _detectorBoxSize);
-        }
-        else
-        {
-            Gizmos.DrawLine(cameraTransform.position, cameraTransform.position +
-                            cameraTransform.forward * _detectorDistance);
-            Gizmos.DrawWireCube(cameraTransform.position + cameraTransform.forward *
-                               _detectorDistance, _detectorBoxSize);
-        }
-    }
+    public bool Enabled {get; private set;} = true;
 
     private void UpdateDetection()
     {
@@ -45,10 +18,12 @@ public class InteractDetector : MonoBehaviour
             _isInteracting = false;
             return;
         }
+        if (Enabled == true){
 
         Transform cameraTransform = Camera.main.transform;
         bool isDetectingInteractable = Physics.BoxCast(cameraTransform.position, _detectorBoxSize*0.5f,
-        cameraTransform.forward, out RaycastHit hit, Quaternion.identity, _detectorDistance, _interactableLayer);
+                                                        cameraTransform.forward, out RaycastHit hit, Quaternion.identity,
+                                                        _detectorDistance, _interactableLayer);
         if (isDetectingInteractable)
         {
             IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
@@ -65,6 +40,12 @@ public class InteractDetector : MonoBehaviour
         {
             _detectedInteractable = null;
         }
+        }
+    }
+
+    public void SetEnabled(bool isEnabled)
+    {
+        Enabled = isEnabled;
     }
 
     private void Update()
@@ -74,11 +55,40 @@ public class InteractDetector : MonoBehaviour
 
     public void Interact()
     {
-        if(_detectedInteractable != null)
+        if(_detectedInteractable != null && Enabled == true)
         {
             _detectedInteractable.Interact(_owner);
             _detectedInteractable = null;
             _isInteracting = true;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Transform cameraTransform = Camera.main.transform;
+        if (Enabled == true){
+            bool isDetectingInteractable = Physics.BoxCast(cameraTransform.position,
+                                                            _detectorBoxSize * 0.5f,
+                                                            cameraTransform.forward,
+                                                            out RaycastHit hit,
+                                                            Quaternion.identity, _detectorDistance,
+                                                            _interactableLayer);
+            if (isDetectingInteractable)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(cameraTransform.position, cameraTransform.position +
+                                cameraTransform.forward * hit.distance);
+                Gizmos.DrawWireCube(cameraTransform.position + cameraTransform.forward *
+                                    hit.distance, _detectorBoxSize);
+            }
+            else
+            {
+                Gizmos.DrawLine(cameraTransform.position, cameraTransform.position +
+                                cameraTransform.forward * _detectorDistance);
+                Gizmos.DrawWireCube(cameraTransform.position + cameraTransform.forward *
+                                    _detectorDistance, _detectorBoxSize);
+            }
         }
     }
 }

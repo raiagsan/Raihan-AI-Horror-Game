@@ -12,7 +12,7 @@ public class Door : MonoBehaviour, IInteractable
     public string Name => _name;
     protected bool _isAnimating;
     protected bool _isOpen;
-    protected bool IsAnimating => _isAnimating;
+    public bool IsAnimating => _isAnimating;
 
     public UnityEvent OnDoorOpen;
     public UnityEvent OnDoorClose;

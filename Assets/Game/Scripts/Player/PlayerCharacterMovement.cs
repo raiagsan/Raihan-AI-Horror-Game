@@ -22,6 +22,7 @@ public class PlayerCharacterMovement : MonoBehaviour
     private float _sprintSpeed = 2;
     [SerializeField]
     private float _acceleration = 0.5f;    
+    public bool Enabled {get; private set;} = true;
 
     public void SetMoveDirection(Vector2 inputDirection)
     {
@@ -90,11 +91,13 @@ public class PlayerCharacterMovement : MonoBehaviour
     }
     public void Move()
     {
-        CalculateVelocityXZ();
-        CalculateVelocityY();
-        Vector3 velocity = new Vector3(_velocityXZ.x, _velocityY, _velocityXZ.z);
-        _characterController.Move(velocity);
+        if (Enabled == true){
+            CalculateVelocityXZ();
+            CalculateVelocityY();
+            Vector3 velocity = new Vector3(_velocityXZ.x, _velocityY, _velocityXZ.z);
+            _characterController.Move(velocity);
     }
+}
 
     private void Update()
     {
@@ -102,5 +105,10 @@ public class PlayerCharacterMovement : MonoBehaviour
         CalculateAcceleration();
         ResetVelocityY();   
         Move();
+    }
+
+    public void SetEnabled(bool isEnabled)
+    {
+        Enabled = isEnabled;
     }
 }
