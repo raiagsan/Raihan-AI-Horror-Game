@@ -204,8 +204,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8910855995361786849, guid: 126cccdcc23b04e4fb0d7ccd97ad73d4, type: 3}
+      propertyPath: _keyID
+      value: Key_001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910855995361786849, guid: 126cccdcc23b04e4fb0d7ccd97ad73d4, type: 3}
       propertyPath: _duration
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910855995361786849, guid: 126cccdcc23b04e4fb0d7ccd97ad73d4, type: 3}
+      propertyPath: _isLocked
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8910855995361786849, guid: 126cccdcc23b04e4fb0d7ccd97ad73d4, type: 3}
       propertyPath: OnDoorOpen.m_PersistentCalls.m_Calls.Array.size
