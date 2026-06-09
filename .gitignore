@@ -2,8 +2,20 @@ Library/*
 Logs/*
 Temp/*
 
+# Visual Studio Code
+.vscode/
+
+#Unity User Setting
+UserSettings/
+
+# Visual Studio / Rider generated files
 .vsconfig
 *.sln
 *.slnx
 *.csproj
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
 ignore.conf
