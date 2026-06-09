@@ -776,7 +776,7 @@ MonoBehaviour:
   _light: {fileID: 1936748954}
   _owner: {fileID: 355023465}
   _initialBatteryLevel: 100
-  _batteryDrainRate: 1
+  _batteryDrainRate: 20
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
