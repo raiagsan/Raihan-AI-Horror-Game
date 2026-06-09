@@ -8,6 +8,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private InteractDetector _interactDetector;
     [SerializeField] private CameraManager _camera;
     [SerializeField] private InputManager _input;
+    [SerializeField] private Flashlight _flashlight;
 
     public bool IsHiding{get; private set;}
 
@@ -22,6 +23,7 @@ public class PlayerCharacter : MonoBehaviour
     public InteractDetector InteractDetector => _interactDetector;
     public CameraManager Camera => _camera;
     public InputManager Input => _input;
+    public Flashlight Flashlight => _flashlight;
 
     private void Awake()
     {
