@@ -8,5 +8,11 @@ public class PlayerCharacter : MonoBehaviour
 
     public InventoryManager Inventory => _inventory;
     public PlayerCharacterMovement Movement => _movement;
-    public PlayerCharacterStamina Stamina => _stamina;  
+    public PlayerCharacterStamina Stamina => _stamina;
+
+    private void Awake()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }

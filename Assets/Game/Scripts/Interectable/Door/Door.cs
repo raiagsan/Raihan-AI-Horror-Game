@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour, IInteractable
 {
+
     [SerializeField] private string _name;
     [SerializeField] protected Transform _doorTransform;
     [SerializeField] protected float _duration = 1f;
@@ -21,6 +22,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         
     }
+
     public void Interact()
     {
         if (_isOpen == true)
