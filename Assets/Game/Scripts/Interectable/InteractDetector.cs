@@ -37,4 +37,48 @@ public class InteractDetector : MonoBehaviour
                                _detectorDistance, _detectorBoxSize);
         }
     }
+
+    private void UpdateDetection()
+    {
+        if (_isInteracting)
+        {
+            _isInteracting = false;
+            return;
+        }
+
+        Transform cameraTransform = Camera.main.transform;
+        bool isDetectingInteractable = Physics.BoxCast(cameraTransform.position, _detectorBoxSize*0.5f,
+        cameraTransform.forward, out RaycastHit hit, Quaternion.identity, _detectorDistance, _interactableLayer);
+        if (isDetectingInteractable)
+        {
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            if (interactable != null)
+            {
+                _detectedInteractable = interactable;
+            }
+            else
+            {
+                _detectedInteractable = null;
+            }
+        }
+        else
+        {
+            _detectedInteractable = null;
+        }
+    }
+
+    private void Update()
+    {
+        UpdateDetection();
+    }
+
+    public void Interact()
+    {
+        if(_detectedInteractable != null)
+        {
+            _detectedInteractable.Interact(_owner);
+            _detectedInteractable = null;
+            _isInteracting = true;
+        }
+    }
 }

@@ -19,12 +19,7 @@ public class Door : MonoBehaviour, IInteractable
 
     [ContextMenu("Interact Door")]
     public void Interact(PlayerCharacter character)
-    {
-        
-    }
-
-    public void Interact()
-    {
+    {  
         if (_isOpen == true)
         {
             Close();
