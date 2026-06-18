@@ -59,6 +59,7 @@ public class SightPerception : MonoBehaviour
         }
 
         Gizmos.color = Color.red;
+        
         bool isSeeTarget = CheckSight();
         if (isSeeTarget == true){
              Gizmos.color = Color.green;
