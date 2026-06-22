@@ -18,6 +18,13 @@ public class GhostAIController : MonoBehaviour
 
     public UnityEvent OnDespawn;
 
+    private void Update()
+    {
+        if (_behaviorGraphAgent == null || _sightPerception == null) return;
+        
+        _behaviorGraphAgent.SetVariableValue("CanSeeTarget", _sightPerception.CanSeePlayer);
+        _behaviorGraphAgent.SetVariableValue("LastSeenPosition", _sightPerception.LastSeenPosition);
+    }
     public void Despawn()
     {
         StartCoroutine(DespawnAfterEndOfFrame());
@@ -25,7 +32,7 @@ public class GhostAIController : MonoBehaviour
 
     private IEnumerator DespawnAfterEndOfFrame()
     {
-        if (_behaviorGraphAgent == null)
+        if (_behaviorGraphAgent != null)
         {
             _behaviorGraphAgent.SetVariableValue("CanSeeTarget", false);
             _behaviorGraphAgent.enabled = false;

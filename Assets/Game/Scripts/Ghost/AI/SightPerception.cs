@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class SightPerception : MonoBehaviour
@@ -8,6 +7,7 @@ public class SightPerception : MonoBehaviour
     [SerializeField] private float _viewDistance = 10f;
     [SerializeField] private float _viewAngle = 70f;
     [SerializeField] private LayerMask _targetLayer;
+    [SerializeField] private LayerMask _obstacleLayer;
     public bool CanSeePlayer {get; private set;}
     public Vector3 LastSeenPosition {get; private set;}
 
@@ -38,15 +38,16 @@ public class SightPerception : MonoBehaviour
             return false;
         }
 
+        bool isBlocked = Physics.Raycast(_eyePosition.position, dirToTarget.normalized, out RaycastHit obstacleHit, distance, _obstacleLayer);
+
+        if (isBlocked) return false;
+
         bool isSeeTarget = Physics.Raycast(_eyePosition.position, dirToTarget.normalized, out RaycastHit hit, _viewDistance, _targetLayer);
 
-        if (isSeeTarget == true)
+        if (isSeeTarget && hit.transform == _target)
         {
-            if (hit.transform == _target)
-            {
-                LastSeenPosition = _target.position;
-                return true;
-            }
+            LastSeenPosition = _target.position;
+            return true;
         }
         return false;
     }

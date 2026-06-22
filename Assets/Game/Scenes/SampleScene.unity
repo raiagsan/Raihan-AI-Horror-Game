@@ -1252,10 +1252,13 @@ MonoBehaviour:
   _target: {fileID: 355023461}
   _eyePosition: {fileID: 1540082518}
   _viewDistance: 9
-  _viewAngle: 55
+  _viewAngle: 90
   _targetLayer:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
+  _obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &472939143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,7 +1676,7 @@ Transform:
   m_GameObject: {fileID: 783361045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: 0.58, z: -8.01}
+  m_LocalPosition: {x: 0.83, y: 0.58, z: -7.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
