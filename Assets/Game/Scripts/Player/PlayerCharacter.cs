@@ -24,10 +24,15 @@ public class PlayerCharacter : MonoBehaviour
     public CameraManager Camera => _camera;
     public InputManager Input => _input;
     public Flashlight Flashlight => _flashlight;
-
+    public void Death()
+    {
+        Debug.Log("Lose");
+    }
     private void Awake()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+
 }
