@@ -30,15 +30,22 @@ public class InteractDetector : MonoBehaviour
             if (interactable != null)
             {
                 _detectedInteractable = interactable;
+
+                //Show Interactable UI
+                HUDManager.Instance.InteractionInfoUI.SetNameText(_detectedInteractable.Name);
+                HUDManager.Instance.InteractionInfoUI.SetVisible(true);
             }
             else
             {
+                //Hide Interactable UI
                 _detectedInteractable = null;
+                HUDManager.Instance.InteractionInfoUI.SetVisible(false);
             }
         }
         else
         {
             _detectedInteractable = null;
+            HUDManager.Instance.InteractionInfoUI.SetVisible(false);
         }
         }
     }
@@ -60,6 +67,7 @@ public class InteractDetector : MonoBehaviour
             _detectedInteractable.Interact(_owner);
             _detectedInteractable = null;
             _isInteracting = true;
+            HUDManager.Instance.InteractionInfoUI.SetVisible(false);
         }
     }
 

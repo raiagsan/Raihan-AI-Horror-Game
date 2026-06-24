@@ -11,7 +11,7 @@ public class BatteryUI : MonoBehaviour
 
     public void SetVisible(bool value)
     {
-        _uiObject.SetActive(value );
+        _uiObject?.SetActive(value );
     }
 
     public void UpdateBatteryUI(float value, float maxValue)
