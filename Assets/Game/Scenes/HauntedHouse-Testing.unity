@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staminaUI: {fileID: 1959190689}
+  _batteryUI: {fileID: 742851048}
 --- !u!4 &43178358
 Transform:
   m_ObjectHideFlags: 0
@@ -163,6 +164,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1959190690}
+  - {fileID: 742851047}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &79700541
@@ -618,10 +620,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 1968491631d996e45bb49fc3681e545e, type: 3}
-  m_Type: 1
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -2206,6 +2208,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727303713}
   m_CullTransparentMesh: 1
+--- !u!1 &742851046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742851047}
+  - component: {fileID: 742851048}
+  m_Layer: 0
+  m_Name: BatteryUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742851047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742851046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 43178358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &742851048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742851046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0781cf3461eaba44923ec4e60613076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiObject: {fileID: 1722047933}
+  _batteryFill: {fileID: 163793962}
+  _highColor: {r: 0.22801375, g: 1, b: 0, a: 1}
+  _mediumColor: {r: 1, g: 0.94269866, b: 0, a: 1}
+  _lowColor: {r: 0.94716984, g: 0.062548816, b: 0.062548816, a: 1}
 --- !u!1 &783361045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,11 +2703,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4779411201265450251, guid: c492ba341be7f3146967a09a78fab025, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.316
+      value: -7.245
       objectReference: {fileID: 0}
     - target: {fileID: 4779411201265450251, guid: c492ba341be7f3146967a09a78fab025, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.724
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 4779411201265450251, guid: c492ba341be7f3146967a09a78fab025, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3588,11 +3639,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5234149226918167881, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.693
+      value: -5.81
       objectReference: {fileID: 0}
     - target: {fileID: 5234149226918167881, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 5234149226918167881, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3625,6 +3676,38 @@ PrefabInstance:
     - target: {fileID: 5234149226918167881, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 742851048}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVisible
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BatteryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010000253611815978, guid: e3b1cd1f1720fe54d8177f808ded89f7, type: 3}
+      propertyPath: OnItemPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,13 +8,25 @@ public class Flashlight : MonoBehaviour
     [SerializeField] private float _batteryDrainRate = 1;
 
     private float _batteryLevel;
+
     public bool HasBattery => _batteryLevel > 0;
     public bool HasFlashlight => _owner.Inventory.CheckItem("Flashlight_001");
 
     private void Awake()
     {
         _batteryLevel = _initialBatteryLevel;
+
+        HUDManager.Instance.BatteryUI.UpdateBatteryUI(_batteryLevel, _initialBatteryLevel);
     }
+
+    public void SetBatteryLevel(float batteryLevel)
+    {
+        _batteryLevel = _batteryLevel + batteryLevel;
+        _batteryLevel = Mathf.Clamp(_batteryLevel, 0, _initialBatteryLevel);
+
+        HUDManager.Instance.BatteryUI.UpdateBatteryUI(_batteryLevel, _initialBatteryLevel);
+    }
+
 
     public void UseFlashlight()
     {
@@ -47,12 +59,16 @@ public class Flashlight : MonoBehaviour
                 _batteryLevel = 0;
                 _light.enabled = false;
             }
+
+            HUDManager.Instance.BatteryUI.UpdateBatteryUI(_batteryLevel, _initialBatteryLevel);    
         }
     }
 
     public void RefillBatteryLevel()
     {
         _batteryLevel = _initialBatteryLevel;
+
+        HUDManager.Instance.BatteryUI.UpdateBatteryUI(_batteryLevel, _initialBatteryLevel);
     }
 
     private void Update()
