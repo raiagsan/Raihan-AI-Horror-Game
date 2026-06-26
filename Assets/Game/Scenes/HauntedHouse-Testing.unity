@@ -151,6 +151,7 @@ MonoBehaviour:
   _staminaUI: {fileID: 1959190689}
   _batteryUI: {fileID: 742851048}
   _interactionInfoUI: {fileID: 1988115717}
+  _crosshairUI: {fileID: 2053246516}
 --- !u!4 &43178358
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +168,7 @@ Transform:
   - {fileID: 1959190690}
   - {fileID: 742851047}
   - {fileID: 1988115718}
+  - {fileID: 2053246517}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &79700541
@@ -1239,8 +1241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _owner: {fileID: 355023465}
-  _detectorDistance: 2
-  _detectorBoxSize: {x: 1, y: 1, z: 1}
+  _detectorDistance: 1.5
+  _detectorBoxSize: {x: 0.25, y: 0.25, z: 0.25}
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -4162,6 +4164,53 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2053246515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053246517}
+  - component: {fileID: 2053246516}
+  m_Layer: 0
+  m_Name: CrosshairUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2053246516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053246515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56cc76f0cbbf6434e9ebdd632b5ec0f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _normalColor: {r: 0.645283, g: 0.645283, b: 0.645283, a: 0.78431374}
+  _highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  _crosshairImage: {fileID: 635288994}
+--- !u!4 &2053246517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053246515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 43178358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2064701321
 GameObject:
