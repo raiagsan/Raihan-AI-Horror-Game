@@ -13,9 +13,10 @@ public class Door : MonoBehaviour, IInteractable
     protected bool _isAnimating;
     protected bool _isOpen;
     public bool IsAnimating => _isAnimating;
-
+    
     public UnityEvent OnDoorOpen;
     public UnityEvent OnDoorClose;
+    public UnityEvent OnOpenLockedDoor;
 
     [ContextMenu("Interact Door")]
     public void Interact(PlayerCharacter character)
@@ -23,10 +24,15 @@ public class Door : MonoBehaviour, IInteractable
         if (_isLocked == true)
         {
             bool hasKey = character.Inventory.CheckItem(_keyID);
+
             if (hasKey == true)
             {
                 _isLocked = false;
                 Open();
+            }
+            else
+            {
+                OnOpenLockedDoor?.Invoke();
             }
         }
         else
